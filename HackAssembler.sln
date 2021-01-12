@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GoogleTestStatic", "GoogleTestStatic\GoogleTestStatic.vcxproj", "{72E7DE12-A28D-46C9-BE54-56D17C5E330E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HackAssemblerTests", "HackAssemblerTests\HackAssemblerTests.vcxproj", "{2D143C25-448A-4EC8-BCC4-886806C18B10}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -36,6 +38,14 @@ Global
 		{72E7DE12-A28D-46C9-BE54-56D17C5E330E}.Release|x64.Build.0 = Release|x64
 		{72E7DE12-A28D-46C9-BE54-56D17C5E330E}.Release|x86.ActiveCfg = Release|Win32
 		{72E7DE12-A28D-46C9-BE54-56D17C5E330E}.Release|x86.Build.0 = Release|Win32
+		{2D143C25-448A-4EC8-BCC4-886806C18B10}.Debug|x64.ActiveCfg = Debug|x64
+		{2D143C25-448A-4EC8-BCC4-886806C18B10}.Debug|x64.Build.0 = Debug|x64
+		{2D143C25-448A-4EC8-BCC4-886806C18B10}.Debug|x86.ActiveCfg = Debug|Win32
+		{2D143C25-448A-4EC8-BCC4-886806C18B10}.Debug|x86.Build.0 = Debug|Win32
+		{2D143C25-448A-4EC8-BCC4-886806C18B10}.Release|x64.ActiveCfg = Release|x64
+		{2D143C25-448A-4EC8-BCC4-886806C18B10}.Release|x64.Build.0 = Release|x64
+		{2D143C25-448A-4EC8-BCC4-886806C18B10}.Release|x86.ActiveCfg = Release|Win32
+		{2D143C25-448A-4EC8-BCC4-886806C18B10}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

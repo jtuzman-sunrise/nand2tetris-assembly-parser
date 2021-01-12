@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{b422f4dc-dcde-497a-a0d0-5d105e6fbe3e}</ProjectGuid>
-    <RootNamespace>HackAssembler</RootNamespace>
+    <ProjectGuid>{2d143c25-448a-4ec8-bcc4-886806c18b10}</ProjectGuid>
+    <RootNamespace>HackAssemblerTests</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -72,6 +72,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\Users\jtuzman\source\repos\HackAssembler\HackAssembler;C:\Users\jtuzman\source\googletest-release-1.10.0\googletest\include;C:\Users\jtuzman\source\googletest-release-1.10.0\googletest;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -139,11 +140,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Assembler.h" />
+    <ProjectReference Include="..\GoogleTestStatic\GoogleTestStatic.vcxproj">
+      <Project>{72e7de12-a28d-46c9-be54-56d17c5e330e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\HackAssembler\HackAssembler.vcxproj">
+      <Project>{b422f4dc-dcde-497a-a0d0-5d105e6fbe3e}</Project>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Assembler.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
