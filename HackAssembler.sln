@@ -5,6 +5,13 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HackAssembler", "HackAssembler\HackAssembler.vcxproj", "{B422F4DC-DCDE-497A-A0D0-5D105E6FBE3E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{70E792CC-5687-4683-A28D-7BC44046726C}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GoogleTestStatic", "GoogleTestStatic\GoogleTestStatic.vcxproj", "{72E7DE12-A28D-46C9-BE54-56D17C5E330E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +28,14 @@ Global
 		{B422F4DC-DCDE-497A-A0D0-5D105E6FBE3E}.Release|x64.Build.0 = Release|x64
 		{B422F4DC-DCDE-497A-A0D0-5D105E6FBE3E}.Release|x86.ActiveCfg = Release|Win32
 		{B422F4DC-DCDE-497A-A0D0-5D105E6FBE3E}.Release|x86.Build.0 = Release|Win32
+		{72E7DE12-A28D-46C9-BE54-56D17C5E330E}.Debug|x64.ActiveCfg = Debug|x64
+		{72E7DE12-A28D-46C9-BE54-56D17C5E330E}.Debug|x64.Build.0 = Debug|x64
+		{72E7DE12-A28D-46C9-BE54-56D17C5E330E}.Debug|x86.ActiveCfg = Debug|Win32
+		{72E7DE12-A28D-46C9-BE54-56D17C5E330E}.Debug|x86.Build.0 = Debug|Win32
+		{72E7DE12-A28D-46C9-BE54-56D17C5E330E}.Release|x64.ActiveCfg = Release|x64
+		{72E7DE12-A28D-46C9-BE54-56D17C5E330E}.Release|x64.Build.0 = Release|x64
+		{72E7DE12-A28D-46C9-BE54-56D17C5E330E}.Release|x86.ActiveCfg = Release|Win32
+		{72E7DE12-A28D-46C9-BE54-56D17C5E330E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
