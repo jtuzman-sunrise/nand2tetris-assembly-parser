@@ -1,2 +1,0 @@
-C:\Users\jtuzman\source\repos\HackAssembler\Debug\GoogleTestStatic.pdb
-C:\Users\jtuzman\source\repos\HackAssembler\GoogleTestStatic\Debug\GoogleTestStatic.pdb
