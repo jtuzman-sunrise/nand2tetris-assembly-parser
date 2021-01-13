@@ -1,6 +1,6 @@
 x64
 .vs
 packages
-**/debug
-**\debug
+**/Debug
+**\Debug
 *.tlog
