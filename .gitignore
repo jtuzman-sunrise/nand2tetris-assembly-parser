@@ -2,9 +2,15 @@ x64
 .vs
 .vscode
 packages
+# these aren't really working
 **/Debug
 **Debug
 **\Debug
-*.tlog
 HackAssembler\Debug
 HackAssemblerTests\Debug
+
+*.tlog
+*.lib
+*.pdb
+*.exe*
+*.ilk
