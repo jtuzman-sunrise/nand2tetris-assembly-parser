@@ -6,3 +6,5 @@ packages
 **Debug
 **\Debug
 *.tlog
+HackAssembler\Debug
+HackAssemblerTests\Debug
