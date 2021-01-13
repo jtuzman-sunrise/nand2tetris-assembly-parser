@@ -1,6 +1,8 @@
 x64
 .vs
+.vscode
 packages
 **/Debug
+**Debug
 **\Debug
 *.tlog
