@@ -14,7 +14,7 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="Test Files">
-      <UniqueIdentifier>{30e84945-1ee4-45a8-8882-8b99d01aaf7c}</UniqueIdentifier>
+      <UniqueIdentifier>{dcf59219-5735-469c-8fac-c506cef007e5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -30,17 +30,20 @@
     <ClCompile Include="..\HackAssembler\CInstruction.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ParserTest.cpp">
+    <ClCompile Include="AInstructionTest.cpp">
       <Filter>Test Files</Filter>
     </ClCompile>
     <ClCompile Include="AssemblerTest.cpp">
       <Filter>Test Files</Filter>
     </ClCompile>
-    <ClCompile Include="AInstructionTest.cpp">
-      <Filter>Test Files</Filter>
-    </ClCompile>
     <ClCompile Include="CInstructionTest.cpp">
       <Filter>Test Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ParserTest.cpp">
+      <Filter>Test Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\HackAssembler\AssemblyParser.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -54,6 +57,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\HackAssembler\CInstruction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\HackAssembler\AssemblyParser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

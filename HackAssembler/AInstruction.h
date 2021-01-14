@@ -1,6 +1,7 @@
 #pragma once
 #include "AssemblerInstruction.h"
 #include <map>
+#include <string>
 
 using SymTable = std::map<std::string, int>;
 class AInstruction :
@@ -8,6 +9,7 @@ class AInstruction :
 {
 public:
 	AInstruction(std::string assemblyCode, int thisLineNumber);
+	std::string getLine();
 	static SymTable getSymbolTable();
 	static void addToSymbolTable(std::string label, int lineNum);
     static void resetSymbolTable();
