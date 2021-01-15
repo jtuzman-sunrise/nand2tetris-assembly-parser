@@ -22,15 +22,18 @@ AssemblyParser::AssemblyParser(string assemblyCode, unsigned int lineNumber)
     if (assemblyCode.find("@") == 0) {
         mInstruction = AInstruction(assemblyCode.substr(1), lineNumber);
         mInstructionPtr = new AInstruction(assemblyCode.substr(1), lineNumber);
-        //mInstructionPtr = &(mInstruction);
-        //mUniqueInstructionPtr = make_unique<AInstruction>(assemblyCode.substr(1), lineNumber);
+
+        mUniqueInstructionPtr = make_unique<AInstruction>(assemblyCode.substr(1), lineNumber);
         return;
     } 
 
     // c-instruction
+    //auto regex_str = regex("(?<dest>[AMD]{1,3}=)?(?<comp>[01\-AMD!|+&><]{1,3})?(?<jump>;[A-Z]{3})?");
     auto regex_str = regex("(?<dest>[AMD]{1,3}=)?(?<comp>[01\-AMD!|+&><]{1,3})?(?<jump>;[A-Z]{3})?");
     auto matches = regex_match(assemblyCode, regex_str);
     cout << matches;
+
+    mInstructionPtr = new CInstruction("")
 }
 
 AssemblerInstruction AssemblyParser::getInstruction()
@@ -38,7 +41,7 @@ AssemblerInstruction AssemblyParser::getInstruction()
     return mInstruction;
 }
 
-std::unique_ptr<AssemblerInstruction> AssemblyParser::getUniqueInstructionPtr()
+unique_ptr<AssemblerInstruction> AssemblyParser::getUniqueInstructionPtr()
 {
     return make_unique<AssemblerInstruction>(mInstruction);
     //return mUniqueInstructionPtr;
