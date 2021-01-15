@@ -14,12 +14,19 @@ TEST(ParserA, parsesAInstructionType)
 }
 TEST(ParserA, parsesBuiltInConstants)
 {
-	AssemblerInstruction inst = Parser("@R3", 0).getInstruction();
-	EXPECT_EQ(inst.getInstructionType(), AssemblerInstruction::InstructionType::A);
-	AssemblerInstruction* i = &(inst);
-	AInstruction* a = dynamic_cast<AInstruction*>(i);
-	std::string line = a->getLine();
+	Parser parser("@R3", 0);
+	AssemblerInstruction inst = parser.getInstruction();
+	AssemblerInstruction* instPtr = &(inst);
+	auto uptr = parser.getUniqueInstructionPtr();
+	auto urefr = &uptr;
+	auto ptr = parser.getInstructionPtr();
+	auto refr = &ptr;
 
+
+	EXPECT_EQ(ptr->getInstructionType(), AssemblerInstruction::InstructionType::A);
+	AInstruction* a = dynamic_cast<AInstruction*>(ptr);
+
+	std::string line = a->getLine();
 	EXPECT_EQ(a->getLine(), "R3");
 }
 /*

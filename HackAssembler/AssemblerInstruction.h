@@ -12,8 +12,8 @@ public:
         none
     };
 
-    InstructionType getInstructionType();
-    std::string getMachineCode();
+    virtual InstructionType getInstructionType();
+    virtual std::string getMachineCode();
 
 protected:
     InstructionType mInstructionType = InstructionType::none;

@@ -1,12 +1,14 @@
 #include "AssemblyParser.h"
 #include "AInstruction.h"
 #include "CInstruction.h"
+#include "AssemblerInstruction.h"
 #include <string>
 #include <exception>
+#include <memory>
 #include <regex>
 #include <iostream>
-
 using namespace std;
+
 AssemblyParser::AssemblyParser(string assemblyCode, unsigned int lineNumber)
 {
     // non-instruction lines should be handled BEFORE we get to the parser
@@ -19,6 +21,9 @@ AssemblyParser::AssemblyParser(string assemblyCode, unsigned int lineNumber)
     // a-instruction
     if (assemblyCode.find("@") == 0) {
         mInstruction = AInstruction(assemblyCode.substr(1), lineNumber);
+        mInstructionPtr = new AInstruction(assemblyCode.substr(1), lineNumber);
+        //mInstructionPtr = &(mInstruction);
+        //mUniqueInstructionPtr = make_unique<AInstruction>(assemblyCode.substr(1), lineNumber);
         return;
     } 
 
@@ -31,4 +36,16 @@ AssemblyParser::AssemblyParser(string assemblyCode, unsigned int lineNumber)
 AssemblerInstruction AssemblyParser::getInstruction()
 {
     return mInstruction;
+}
+
+std::unique_ptr<AssemblerInstruction> AssemblyParser::getUniqueInstructionPtr()
+{
+    return make_unique<AssemblerInstruction>(mInstruction);
+    //return mUniqueInstructionPtr;
+}
+
+AssemblerInstruction* AssemblyParser::getInstructionPtr()
+{
+    //return &mInstruction;
+    return mInstructionPtr;
 }
