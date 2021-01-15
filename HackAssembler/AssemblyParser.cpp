@@ -28,17 +28,12 @@ AssemblyParser::AssemblyParser(string assemblyCode, unsigned int lineNumber)
     } 
 
     // c-instruction
-    //auto regex_str = regex("(?<dest>[AMD]{1,3}=)?(?<comp>[01\-AMD!|+&><]{1,3})?(?<jump>;[A-Z]{3})?");
-    auto regex_str = regex("(?<dest>[AMD]{1,3}=)?(?<comp>[01\-AMD!|+&><]{1,3})?(?<jump>;[A-Z]{3})?");
-    auto matches = regex_match(assemblyCode, regex_str);
-    cout << matches;
+    smatch matches;
+    auto regex_str = regex("([AMD]{1,3}=)?([01\-AMD!|+&><]{1,3})?(;[A-Z]{3})?");
+    regex_search(assemblyCode, matches, regex_str);
+    string dest = matches[1], comp = matches[2], jump = matches[3];
 
-    mInstructionPtr = new CInstruction("")
-}
-
-AssemblerInstruction AssemblyParser::getInstruction()
-{
-    return mInstruction;
+    mInstructionPtr = new CInstruction(comp.substr(0, comp.length() - 1), dest, jump.substr(1);
 }
 
 unique_ptr<AssemblerInstruction> AssemblyParser::getUniqueInstructionPtr()

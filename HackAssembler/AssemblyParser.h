@@ -6,7 +6,6 @@ class AssemblyParser
 {
 public:
     AssemblyParser(std::string assemblyCode, unsigned int lineNumber);
-    AssemblerInstruction getInstruction();
     std::unique_ptr<AssemblerInstruction> getUniqueInstructionPtr();
     AssemblerInstruction* getInstructionPtr();
 

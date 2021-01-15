@@ -9,8 +9,8 @@ using Parser = AssemblyParser;
 TEST(ParserA, parsesAInstructionType)
 {
 	// parse an a instruction and test its instruction type
-	AssemblyParser p("@1", 0);
-	EXPECT_EQ(p.getInstruction().getInstructionType(), AssemblerInstruction::InstructionType::A);
+	Parser p("@1", 0);
+	EXPECT_EQ(p.getInstructionPtr()->getInstructionType(), AssemblerInstruction::InstructionType::A);
 }
 
 TEST(ParserA, parsesBuiltInConstants)
@@ -27,8 +27,6 @@ TEST(ParserA, DISABLED_parsesBuiltInConstantsUnique)
 	EXPECT_EQ(a->getLine(), "R3");
 }
 
-
-
 TEST(ParserA, parsesNumericConstant)
 {
 	auto ptr = Parser("@15", 0).getInstructionPtr();
@@ -42,20 +40,3 @@ TEST(ParserA, parsesVariable)
 	AInstruction* a = dynamic_cast<AInstruction*>(ptr);
 	EXPECT_EQ(a->getLine(), "abc");
 }
-
-TEST(ParserC, parsesCInstructionTypeFull)
-{
-	// parse an a C and test its instruction type
-	Parser p("A=M;JMP", 0);
-	EXPECT_EQ(p.getInstruction().getInstructionType(), AssemblerInstruction::InstructionType::C);
-}
-
-TEST(ParserC, parsesCInstructionTypeNoJump)
-{
-	// parse an a C and test its instruction type
-	Parser p("D=D-M", 0);
-	EXPECT_EQ(p.getInstruction().getInstructionType(), AssemblerInstruction::InstructionType::C);
-}
-
-// parsing different types of C instructions.
-// these examples should be able to be reused to test the actual assembling of the C instructions
