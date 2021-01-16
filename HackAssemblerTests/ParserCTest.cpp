@@ -6,7 +6,7 @@
 #include <CInstruction.h>
 using Parser = AssemblyParser;
 
-TEST(ParserC, parsesCInstructionTypeFull)
+TEST(ParserCTest, parsesCInstructionTypeFull)
 {
 	// parse an a C and test its instruction type
 	auto ptr = Parser("A=D-1;JMP", 0).getInstructionPtr();
@@ -18,7 +18,7 @@ TEST(ParserC, parsesCInstructionTypeFull)
 	EXPECT_EQ(c->getJump(), "JMP");
 }
 
-TEST(ParserC, parsesCInstructionTypeNoJump)
+TEST(ParserCTest, parsesCInstructionTypeNoJump)
 {
 	// parse an a C and test its instruction type
 	auto ptr = Parser("D=D+M", 0).getInstructionPtr();
@@ -30,7 +30,7 @@ TEST(ParserC, parsesCInstructionTypeNoJump)
 	EXPECT_EQ(c->getJump(), "");
 }
 
-TEST(ParserC, parsesCInstructionTypeNoDest)
+TEST(ParserCTest, parsesCInstructionTypeNoDest)
 {
 	// parse an a C and test its instruction type
 	auto ptr = Parser("A&M;JMP", 0).getInstructionPtr();

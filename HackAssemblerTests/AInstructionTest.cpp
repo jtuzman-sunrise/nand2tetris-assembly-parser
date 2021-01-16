@@ -36,9 +36,20 @@ TEST_F(AInstructionTest, existingCustomSymbol)
     AInstruction::addToSymbolTable("abc", 17);
     EXPECT_EQ(AInstruction("abc", 12).getMachineCode(), "0000000000010001");
 }
+
+TEST_F(AInstructionTest, addingToTable) {
+    AInstruction::addToSymbolTable("a", 0);
+    EXPECT_EQ(AInstruction::getSymbolTable()["a"], 16);
+    AInstruction::addToSymbolTable("b", 0);
+    EXPECT_EQ(AInstruction::getSymbolTable()["b"], 17);
+    AInstruction::addToSymbolTable("c", 0);
+    EXPECT_EQ(AInstruction::getSymbolTable()["c"], 18);
+}
+
 TEST_F(AInstructionTest, newCustomSymbol)
 {
-    // first instance of @abc; add to table
+    // first instance of @abc; add to table at next free spot
+    AInstruction::addToSymbolTable("a", 0);
     auto t = AInstruction::getSymbolTable();
     EXPECT_EQ(AInstruction("abc", 12).getMachineCode(), "0000000000001100");
     // abc exists, line should be the same
