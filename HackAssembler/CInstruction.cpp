@@ -1,7 +1,8 @@
 #include "CInstruction.h"
 #include <map>
+#include <unordered_map>
 
-using StrMap = std::map<std::string, std::string>;
+using StrMap = std::unordered_map<std::string, std::string>;
 
 StrMap COMP_CODES{
 	{"0", "0101010"},

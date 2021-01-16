@@ -6,53 +6,49 @@ class AInstructionTest : public testing::Test
 protected:
     virtual void SetUp()
     {
-        AInstruction::resetSymbolTable();
+        mSymbolTable = SymbolTable();
+        // AInstruction::resetSymbolTable();
     }
+    SymbolTable mSymbolTable;
+    std::string codeForAInstruction(std::string line) { return AInstruction(line, mSymbolTable).getMachineCode(); };
 };
 
 TEST_F(AInstructionTest, initialization)
 {
-    auto i = AInstruction("16", 12);
+    auto t = SymbolTable();
+    auto i = AInstruction("16", t);
     EXPECT_EQ(i.getInstructionType(), AssemblerInstruction::InstructionType::A);
 }
 
 TEST_F(AInstructionTest, numericalConstant)
 {
-    EXPECT_EQ(AInstruction("16", 12).getMachineCode(), "0000000000010000");
-    EXPECT_EQ(AInstruction("01", 12).getMachineCode(), "0000000000000001");
-    EXPECT_EQ(AInstruction("10", 12).getMachineCode(), "0000000000001010");
-    EXPECT_EQ(AInstruction("96", 12).getMachineCode(), "0000000001100000");
-    EXPECT_EQ(AInstruction("1200", 12).getMachineCode(), "0000010010110000");
+    EXPECT_EQ(codeForAInstruction("16"), "0000000000010000");
+    EXPECT_EQ(codeForAInstruction("01"), "0000000000000001");
+    EXPECT_EQ(codeForAInstruction("10"), "0000000000001010");
+    EXPECT_EQ(codeForAInstruction("96"), "0000000001100000");
+    EXPECT_EQ(codeForAInstruction("1200"), "0000010010110000");
 }
 
 TEST_F(AInstructionTest, predefinedSymbol)
 {
-    EXPECT_EQ(AInstruction("R10", 12).getMachineCode(), "0000000000001010");
-    EXPECT_EQ(AInstruction("SCREEN", 12).getMachineCode(), "0100000000000000");
+    EXPECT_EQ(codeForAInstruction("R10"), "0000000000001010");
+    EXPECT_EQ(codeForAInstruction("SCREEN"), "0100000000000000");
 }
 
 TEST_F(AInstructionTest, existingCustomSymbol)
 {
-    AInstruction::addToSymbolTable("abc", 17);
-    EXPECT_EQ(AInstruction("abc", 12).getMachineCode(), "0000000000010001");
-}
-
-TEST_F(AInstructionTest, addingToTable) {
-    AInstruction::addToSymbolTable("a", 0);
-    EXPECT_EQ(AInstruction::getSymbolTable()["a"], 16);
-    AInstruction::addToSymbolTable("b", 0);
-    EXPECT_EQ(AInstruction::getSymbolTable()["b"], 17);
-    AInstruction::addToSymbolTable("c", 0);
-    EXPECT_EQ(AInstruction::getSymbolTable()["c"], 18);
+    mSymbolTable.add("abc");
+    // AInstruction::addToSymbolTable("abc", 17);
+    EXPECT_EQ(codeForAInstruction("abc"), "0000000000010000");
 }
 
 TEST_F(AInstructionTest, newCustomSymbol)
 {
-    // first instance of @abc; add to table at next free spot
-    AInstruction::addToSymbolTable("a", 0);
-    auto t = AInstruction::getSymbolTable();
-    EXPECT_EQ(AInstruction("abc", 12).getMachineCode(), "0000000000001100");
+    // AInstruction::addToSymbolTable("a", 0);
+    // auto t = AInstruction::getSymbolTable();
+    // first instance of @abc; add to table at next free spot (16)
+    EXPECT_EQ(codeForAInstruction("abc"), "0000000000010000");
     // abc exists, line should be the same
-    t = AInstruction::getSymbolTable();
-    EXPECT_EQ(AInstruction("abc", 120).getMachineCode(), "0000000000001100");
+    // t = AInstruction::getSymbolTable();
+    EXPECT_EQ(codeForAInstruction("abc"), "0000000000010000");
 }

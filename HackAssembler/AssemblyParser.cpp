@@ -20,10 +20,10 @@ AssemblyParser::AssemblyParser(string assemblyCode, unsigned int lineNumber)
 
 	// a-instruction
 	if (assemblyCode.find("@") == 0) {
-		mInstruction = AInstruction(assemblyCode.substr(1), lineNumber);
-		mInstructionPtr = new AInstruction(assemblyCode.substr(1), lineNumber);
+		mInstruction = AInstruction(assemblyCode.substr(1), mSymbolTable);
+		mInstructionPtr = new AInstruction(assemblyCode.substr(1), mSymbolTable);
 
-		mUniqueInstructionPtr = make_unique<AInstruction>(assemblyCode.substr(1), lineNumber);
+		mUniqueInstructionPtr = make_unique<AInstruction>(assemblyCode.substr(1), mSymbolTable);
 		return;
 	}
 

@@ -1,6 +1,7 @@
 #include <memory>
 #include <string>
 #include "AssemblerInstruction.h"
+#include "SymbolTable.h"
 
 class AssemblyParser
 {
@@ -11,7 +12,7 @@ public:
 
 private:
     AssemblerInstruction mInstruction;
-
+    SymbolTable mSymbolTable = SymbolTable();
     std::unique_ptr<AssemblerInstruction> mUniqueInstructionPtr;
     AssemblerInstruction* mInstructionPtr;
 };
